@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contents & filter</title>
+</head>
+<body>
+    <h1>This is awesome <u>JS library</u></h1>
+
+    <h1>Are You Ready to Learn Jquery</h1>
+
+    <h2>This is Awesome <i>JS Library</i></h2>
+
+    <h2>Are You Ready To learn Jquery</h2>
+
+    <h3>This is SU MYAT AUNG</h3>
+    <h3>YU <u>Beautiful :)</u> <i>Emajor</i> Student</h3>
+
+    <button id="btn">Filter</button>
+
+    <script src="./LIBS/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var gettext = $("h1").contents();
+            console.log(gettext);
+
+            var gettext1 = $("h1").contents().text();
+            console.log(gettext1);
+
+            var gettext2 = $("h1,h2").contents().text();
+            console.log(gettext2);
+
+            var gettext3 = $("h2").contents().filter("u");
+            console.log(gettext3);
+
+            var gettext4 = $("h3").contents().filter("u").text();
+            console.log(gettext4);
+
+            $("#btn").click(function() {
+                console.log($("h3").contents().filter("u").text());
+                console.log($("h3").contents().filter("i").text())
+            })
+
+
+        })
+    </script>
+    
+</body>
+</html>

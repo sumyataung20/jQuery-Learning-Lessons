@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data & Remove Data</title>
+
+    <style type="text/css">
+        body{
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            width: 900px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <h3>Student Data</h3>
+        </div>
+
+        <ul>
+            <li>Name : <span data-name="Mr.June">???</span></li>
+            <li>Age : <span data-age="20">???</span></li>
+            <li>Phone :<span data-phone-number="090909090909">???</span></li>
+        </ul>
+
+        <div>
+            <button class="newcaption-btn" type="button">New Caption Button</button>
+            <button class="removecaption-btn" type="button">Remove Caption Button</button>
+            <button class="showinfo-btn" type="button">Show Info</button>
+            <button class="attrid-btn" type="button" data-id="123456">Attribute ID</button>
+            <button class="dataid-btn" type="button" data-id="0987654">Data ID</button>
+            <button class="obj-btn" type="button">Object Btn</button>
+            <button class="inc-btn" type="button" data-id="1">Increase ID</button>
+
+        </div>
+    </div>
+    <script src="./LIBS/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // console.log("hi");
+
+            $(".newcaption-btn").click(function() {
+                var setnewcap = $("div").data("newcaption" , "Customer Info");
+
+                var getnewcap = $("div").data("newcaption");
+
+                $("h3").text(getnewcap);
+            })
+
+            $(".removecaption-btn").click(function() {
+
+                console.log("Before removedata = ", $('div').data("newcaption"));
+
+                $("div").removeData("newcaption");
+
+                console.log("After removedata =" , $("div").data("newcaption"));
+            })
+
+            $(".showinfo-btn").click(function() {
+                var getname = $("ul li:nth-child(1) span").data("name");
+                var getage = $("ul li:nth-child(2) span").data("age");
+                var getphoneno = $("ul li:nth-child(3) span").data("phone-number");
+
+                $("ul li:first-child span").text(getname);
+                $("ul li:nth-child(2) span").text(getage);
+                $("ul li:last-child span").text(getphoneno);
+            })
+
+            $(".attrid-btn").click(function() {
+                var getattrid = $(this).attr("data-id");
+                // $("h3").text(getattrid);
+            })
+
+            $(".dataid-btn").click(function() {
+                var getdataid = $(this).data("id");
+                // $("h3").text(getdataid);
+            })
+
+            $(".obj-btn").click(function() {
+                $("div").data("info", {
+                    objname : "Hsu",
+                    objage: 20,
+                    objphone:"0912345679"
+                })
+
+                $("ul li span:eq(0)").text($("div").data("info").objname);
+                $("ul li span:eq(1)").text($("div").data("info").objage);
+                $("ul li span:eq(2)").text($("div").data("info").objphone);
+            })
+
+            $(".inc-btn").click(function () {
+                var getidmethod1 = $(this).data("id");
+
+                var getidmethod2 = $(this).data().id;
+
+                var getidmethod3 = $(this).data()["id"];
+
+                var incidmethod1 = $(this).data("id");
+                // console.log(incidmethod1);
+                incidmethod1 += 1;
+                // $(this).data("id", incidmethod1);
+
+                var incidmethod2 = $(this).data().id++;
+                // $(this).data("id", incidmethod2);
+                console.log(incidmethod2);
+
+                var incidmethod3 = $(this).data()["id"]++;
+                // console.log(incidmethod3);
+                console.log(incidmethod3);
+                incidmethod3++;
+                $(this).data("id",incidmethod3);
+
+
+                // console.log(getidmethod3);
+            })
+        })
+    </script>
+</body>
+</html>

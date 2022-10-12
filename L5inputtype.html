@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        body{
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container{
+            width: 500px;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .form-group{
+            margin: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" autocomplete="off"/>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">First Name</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" autocomplete="off"/>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select name="country" id="country" class="form-control">
+                    <option selected disabled value="">Choose a country</option>
+                    <option value="">Myanmar</option>
+                    <option value="">Thailand</option>
+                    <option value="">Singapore</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" name="age" id="age" class="form-control" autocomplete="off"/>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="NRC">NRC</label>
+                <input type="text" name="NRC" id="NRC" class="form-control" autocomplete="off"/>
+
+            </div>
+
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="./LIBS/jquery-3.6.0.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#firstname").blur(function() {
+                console.log("Fitstname is working by blur")
+            });
+
+            // $("#lastname").change(function() {
+            //     console.log("Lastname is working by change")
+            // });
+
+            // $("#country").change(function() {
+            //     console.log("Country is working by change")
+            // });
+
+            // $("#NRC").focus(function() {
+            //     console.log("NRC is working by focus")
+            // });
+
+            // $("#age").focusin(function() {
+            //     console.log("Age is working by focus-in")
+            // });
+
+            // $("#age").focusout(function() {
+            //     console.log("Age is working by focus-out")
+            // });
+
+            // $("#firstname").select(function() {
+            //     console.log("firstname is working by select")
+            // });
+
+            // $("#firstname").keydown(function() {
+            //     console.log("firstname is working by keydown")
+            // })
+
+            // $("#firstname").keyup(function() {
+            //     console.log("firstname is working by keyup")
+            // })
+
+            // $("#firstname").keypress(function() {
+            //     console.log("firstname is working by keypress")
+            // })
+
+            $("form").submit(function(e) {
+                console.log("button is working by submit");
+
+                e.preventDefault();
+            })
+
+
+        })
+    </script>
+    
+</body>
+</html>
+
