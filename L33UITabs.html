@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autocomplete</title>
+    <link
+      href="./LIBS/jquery-ui-1.13.2/jquery-ui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 900px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="mytab">
+        <ul>
+          <li><a href="#tabs1">Summary</a></li>
+          <li><a href="#tabs2">About</a></li>
+          <li><a href="#tabs3">Detail Info</a></li>
+        </ul>
+
+        <div id="tabs1">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore
+          veritatis accusamus earum animi iste assumenda, vitae aut rem sed
+          totam quas quisquam reprehenderit facere quae. Eos, aspernatur
+          tenetur. Delectus assumenda obcaecati ducimus molestiae consectetur ut
+          iusto hic sint totam veniam perferendis asperiores, deserunt unde
+          tenetur iure possimus at soluta facilis aperiam dolorem accusantium
+          libero eaque. Ipsa repellat tenetur maiores obcaecati nihil sunt
+          mollitia cumque omnis quis veniam, eius assumenda ipsam! Aspernatur,
+          doloribus quo? Quisquam recusandae magni perferendis illo. Maiores,
+          nemo quae. Totam a reprehenderit cum architecto hic. Distinctio velit
+          asperiores a voluptatibus itaque temporibus aspernatur beatae. Debitis
+          incidunt voluptatibus provident?
+        </div>
+
+        <div id="tabs2">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
+            et.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Dolorum dignissimos doloremque cupiditate porro
+            impedit distinctio expedita nemo blanditiis laudantium mollitia
+            suscipit quae repellat nulla voluptatibus quos in obcaecati,
+            exercitationem aliquam, itaque voluptate voluptatum esse. Quidem
+            voluptate magni iusto, ea eos animi, culpa reiciendis quis unde
+            cumque aperiam! Porro, illo inventore!
+          </p>
+        </div>
+
+        <div id="tabs3">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, optio
+            vitae. Atque sequi dolorem delectus iste distinctio animi fugit
+            voluptate modi inventore autem laborum ex placeat blanditiis,
+            laudantium voluptatum ut! Quasi illo incidunt aut veniam deleniti in
+            voluptatem rerum dignissimos! Autem, dicta non deleniti sint
+            aspernatur perspiciatis rerum earum iusto eveniet at magnam ipsa
+            consectetur. Eveniet consequatur beatae delectus molestias, soluta
+            minima dolor aliquam voluptatem ullam, facere quaerat officia culpa
+            eius. In magnam reiciendis, quidem quasi ad culpa consectetur
+            suscipit!
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="./LIBS/jquery-3.6.0.min.js"></script>
+    <script src="./LIBS/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#mytab").tabs();
+      });
+    </script>
+  </body>
+</html>

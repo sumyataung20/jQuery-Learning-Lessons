@@ -16,6 +16,55 @@
 
         flex-direction: column;
       }
+
+      .container {
+        width: 900px;
+        background-color: #f4f4f4;
+
+        padding: 20px;
+        display: flex;
+      }
+
+      .box {
+        width: 150px;
+        height: 300px;
+        margin: 0 10px;
+      }
+
+      .square1 {
+        background-color: green;
+      }
+
+      .square2 {
+        background-color: orange;
+      }
+
+      .square3 {
+        background-color: blue;
+      }
+
+      .square4 {
+        background-color: violet;
+      }
+
+      .square5 {
+        background-color: brown;
+      }
+
+      .control {
+        display: block;
+        margin-top: 20px;
+      }
+      button {
+        background-color: steelblue;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      button:active {
+        scale: 0.9;
+      }
     </style>
   </head>
   <body>
@@ -49,5 +98,168 @@
     </div>
 
     <script src="./LIBS/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //hide
+
+        $("#hidebtn").click(function () {
+          // $(selector).hide(speed,callbackfun)
+          // $(".square1").hide();
+          // $(".square1, .square2").hide(1000);
+          // $(".box").even().hide();
+          // $(".box").odd().hide("slow");
+
+          $(".square1").hide(1000, function () {
+            $(".square3,.square5").hide(1500, function () {
+              $(".square2,.square4").hide(2000);
+            });
+          });
+        });
+
+        //show
+        // $(selector).show(speed,callbackfun)
+        $("#showbtn").click(function () {
+          // $(".square1").show(1000);
+
+          $(".square1").show("slow", function () {
+            $(".square2,.square4").show(1500, function () {
+              $(".square3,.square5").show(2000);
+            });
+          });
+        });
+
+        //toggle
+        $("#tgbtn").click(function () {
+          // $(".square1,.square4").toggle();
+
+          $(".square1,.square5").toggle(1000, function () {
+            $(".square1").toggle(1500);
+          });
+        });
+
+        //fadeout
+        //$(selector).fadeOut(speed,callbackfun)
+        $("#fdoutbtn").click(function () {
+          $(".square1, .square2").fadeOut(1000, function () {
+            $(".square3,.square4,.square5").fadeOut(1500);
+          });
+        });
+
+        //fadein
+        //$(selector).fadeIn(speed,callbackfun)
+        $("#fdinbtn").click(function () {
+          $(".square1, .square5").fadeIn(1000, function () {
+            $(".square2, .square3, .square4").fadeIn();
+          });
+        });
+
+        // fadetoggle
+        // $(selector).fadeToggle(speed,callbackfun)
+        $("#fdtgbtn").click(function () {
+          $(".square1, .square4").fadeToggle(1000, function () {
+            $(".square3,.square2,.square5").fadeToggle(1500);
+          });
+        });
+
+        //fadeto
+        //$(selector).fadeTo(speed,opacity,callbackfun)
+        $("#fdtobtn").click(function () {
+          $(".square1,.square2").fadeTo(1000, 0.5, function () {
+            $(".square3,.square4,.square5").fadeTo(1500, 0);
+          });
+        });
+
+        //slideup
+        //$(selector).slideUp(speed,callback)
+        $("#sldupbtn").click(function () {
+          $(".square1").slideUp(1000, function () {
+            $(".square2").slideUp(1500);
+          });
+        });
+
+        // slidedown
+        //$(selector).slideDown(speed,callback)
+
+        $("#slddnbtn").click(function () {
+          $(".square1").slideDown(1000, function () {
+            $(".square2").slideDown(1500);
+          });
+        });
+
+        // slide toggle
+        // $(selector).slideToggle(speed,callbac)
+
+        $("#sldtgbtn").click(function () {
+          $(".square1,.square2").slideToggle(500, function () {
+            $(".square5").slideToggle(1000);
+          });
+        });
+
+        //animate
+        //$(selector).animate({params},speed , callback)
+        $("#anibtn").click(function () {
+          $(".square1").animate({ height: "50%" }, function () {
+            $(".square3").animate({ height: "20%" });
+          });
+        });
+        //delay
+        //$(selector).delay({params},speed,callbackfun)
+        $("#dlybtn").click(function () {
+          $(".square2").delay(1000).fadeOut();
+          var sq1 = $(".square1");
+          sq1.animate({ height: 100 }, "slow");
+          sq1.animate({ height: 200 }, "slow");
+          sq1.animate({ height: 200 }, "slow");
+          sq1.animate({ height: 300 }, "slow");
+          sq1.animate({ height: 300 }, "slow");
+          sq1.animate({ height: 150 }, "slow");
+
+          console.log(sq1.queue());
+          console.log(sq1.queue().length);
+        });
+
+        $("#clickmebtn").click(function () {
+          $(".square1")
+            .html("<i>I am ready to start now</i>")
+            .animate({ width: 500 }, 2000);
+
+          $(".square1")
+            .html("<strong>Shit!!<strong>")
+            .animate({ height: 100 }, 1000);
+        });
+
+        //stop & stop(true)
+        $("#stbtn").click(function () {
+          $(".square1").stop();
+        });
+
+        $("#sttubtn").click(function () {
+          $(".square1").stop(true);
+        });
+
+        $("#finish").click(function () {
+          $(".square1").finish();
+        });
+
+        $("#deqbtn").click(function () {
+          var div5 = $(".square5");
+
+          div5.animate({ width: 300, height: 300 }, "slow");
+          div5.animate({ width: 200, height: 200 }, "slow");
+          div5.queue(function () {
+            div5.css("background-color", "steelblue");
+            div5.dequeue();
+          });
+          div5.slideUp("slow");
+          div5.slideDown("slow");
+        });
+
+        //Clear Queue
+
+        $("#cq").click(function () {
+          $(".square5").clearQueue();
+        });
+      });
+    </script>
   </body>
 </html>

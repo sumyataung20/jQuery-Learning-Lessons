@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autocomplete</title>
+    <link
+      href="./LIBS/jquery-ui-1.13.2/jquery-ui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 900px;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .form-group {
+        margin: 10px 0px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .form-control {
+        width: 100%;
+        font-size: 20px;
+        padding: 5px;
+      }
+
+      .justify-content-end {
+        display: flex;
+        justify-content: end;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        background-color: steelblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="">
+        <div class="form-group">
+          <label for="job">Job Title:</label>
+          <input type="text" name="job" id="job" class="form-control" />
+        </div>
+
+        <div class="justify-content-end">
+          <input type="submit" id="submit" class="btn" />
+        </div>
+      </form>
+    </div>
+    <script src="./LIBS/jquery-3.6.0.min.js"></script>
+    <script src="./LIBS/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var positions = [
+          "CEO",
+          "General Manager",
+          "Manager",
+          "Vice Manager",
+          "Sales Manager",
+          "Supervisor",
+          "CFO",
+          "Finance Manager",
+          "Senior Accountant",
+          "Accountant",
+        ];
+
+        $("#job").autocomplete({
+          source: positions,
+        });
+
+        $("form").submit(function (e) {
+          var getjob = $("#job").val();
+          console.log("this is job =" + getjob);
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
