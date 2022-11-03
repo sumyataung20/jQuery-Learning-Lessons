@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Progress Method</title>
+    <link
+      href="./LIBS/jquery-ui-1.13.2/jquery-ui.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style type="text/css">
+      body {
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>HTML</h1>
+      <div id="progress1"></div>
+
+      <h1>CSS</h1>
+      <div id="progress2"></div>
+
+      <h1>jQuery</h1>
+      <div id="progress3"></div>
+
+      <h1>Javascript</h1>
+      <div id="progress4"></div>
+
+      <h1>Bootstrap</h1>
+      <div id="progress5"></div>
+    </div>
+
+    <script src="./LIBS/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script
+      src="./LIBS/jquery-ui-1.13.2/jquery-ui.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#progress1").progressbar({
+          value: 30,
+        });
+
+        $("#progress2").progressbar({
+          value: 20,
+        });
+
+        $("#progress3")
+          .progressbar({
+            value: 80,
+          })
+          .css({
+            "background-color": "#f4f4f4",
+          });
+
+        $("#progress3 > div").css("background-color", "steelblue");
+
+        $("#progress4")
+          .css({
+            "background-color": "#e2e2e2",
+            height: "10px",
+          })
+          .progressbar({
+            value: 50,
+          });
+
+        $("#progress4 > div").css("background-color", "red");
+
+        $("#progress5")
+          .progressbar({
+            value: 45,
+          })
+          .css({
+            "background-image": " url('/img/arrow.png')",
+            "background-repeat": "repeat-x",
+            "background-size": "80px",
+            "background-position": "center",
+          });
+
+        $("#progress5 > div").css("background-color", "orange");
+      });
+    </script>
+  </body>
+</html>
